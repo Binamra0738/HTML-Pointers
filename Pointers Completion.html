@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Programming with Pointers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .question {
+            cursor: pointer;
+            background-color: #f2f2f2;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin: 5px 0;
+            position: relative;
+        }
+        .button-container {
+            margin-top: 10px;
+        }
+        .output-box {
+            display: none;
+            background-color: #e6e6e6;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>C Programming with Pointers</h1>
+    <hr>
+
+    <div class="container">
+        <h2>Questions</h2>
+
+        <div class="question" onclick="toggleOptions(1)">
+            Q1. Write a C program to calculate the area of a circle using Pointer.
+            <div id="options1" class="button-container">
+                <p>Do you want to see:</p>
+                <button onclick="showRawCode(1); event.stopPropagation();">Raw Code</button>
+                <button onclick="showOutput(1); event.stopPropagation();">Output</button>
+            </div>
+            <div id="rawCode1" class="output-box">
+                <pre>
+// Q1. C Program to calculate the area of a circle using Pointer
+#include <stdio.h>
+    int main() {
+    float radius, area;
+    float pi = 3.14;
+    float *rad = &radius;
+    float *area_1 = &area;
+    printf("Enter the radius of the circle: ");
+    scanf("%f", rad);
+    *area_1 = pi * (*rad) * (*rad);
+    printf("The area of the circle is: %.2f\n", *area_1);
+    printf("\n\nProgram executed by Binamra");
+    return 0;
+    }                </pre>
+            </div>
+            <div id="output1" class="output-box">
+                <p><strong>Output for Q1:</strong></p>
+                <p>
+                <img src="areaofcircle.jpg" width="500 px">
+                </p>
+            </div>
+        </div>
+
+        <div class="question" onclick="toggleOptions(2)">
+            Q2. Write a C program to find the maximum value between two numbers using Pointer.
+            <div id="options2" class="button-container">
+                <p>Do you want to see:</p>
+                <button onclick="showRawCode(2); event.stopPropagation();">Raw Code</button>
+                <button onclick="showOutput(2); event.stopPropagation();">Output</button>
+            </div>
+            <div id="rawCode2" class="output-box">
+                <pre>
+// Q2. C Program to find the maximum value between two numbers using Pointer
+#include <stdio.h>
+    void Maxo(int *a, int *b, int *c) {
+    if (*a > *b) {
+    *c = *a;
+    } else {
+    *c = *b;
+    }
+    }
+    int main() {
+    int num1, num2, max;
+    printf("Enter two numbers: ");
+    scanf("%d %d", &num1, &num2);
+    Maxo(&num1, &num2, &max);
+    printf("The maximum value is: %d\n", max);
+    printf("\n\nProgram executed by Binamra\n");
+    return 0;
+    }                </pre>
+            </div>
+            <div id="output2" class="output-box">
+                <p><strong>Output for Q2:</strong></p>
+                <p>
+                <img src="Max Value.jpg" width="500 px">
+                </p>
+            </div>
+        </div>
+
+        <div class="question" onclick="toggleOptions(3)">
+            Q3. Write a C program to swap two numbers using call by reference.
+            <div id="options3" class="button-container">
+                <p>Do you want to see:</p>
+                <button onclick="showRawCode(3); event.stopPropagation();">Raw Code</button>
+                <button onclick="showOutput(3); event.stopPropagation();">Output</button>
+            </div>
+            <div id="rawCode3" class="output-box">
+                <pre>
+// Q3. C Program to swap two numbers using call by reference
+#include <stdio.h>
+    int swap(int *a,int *b);
+    int main (){
+    int j,k;
+    printf("Enter the value of first
+    integer:\n");
+    scanf("%d",&j);
+    printf("\nEnter the value of second
+    integer:\n");
+    scanf("%d",&k);
+    printf("\nValue before Swapping");
+    printf("\n %d \n %d \n",j,k);
+    swap(&j, &k);
+    printf("Value after Swapping");
+    
+    printf("\n %d \n %d \n",j,k);
+    printf("\n\nProgram executed by
+    Binamra\n");
+    return 0;
+    }
+    int swap(int *a, int *b){
+    int temp;
+    temp=*a;
+    *a=*b;
+    *b=temp;
+    return 0;
+    }
+                </pre>
+            </div>
+            <div id="output3" class="output-box">
+                <p><strong>Output for Q3:</strong></p>
+                <p>
+                <img src="Swapping.jpg" width="500 px">
+
+                </p>
+            </div>
+        </div>
+
+        <div class="question" onclick="toggleOptions(4)">
+            Q4. Write a C program to check whether the input number is odd or even using call by reference.
+            <div id="options4" class="button-container">
+                <p>Do you want to see:</p>
+                <button onclick="showRawCode(4); event.stopPropagation();">Raw Code</button>
+                <button onclick="showOutput(4); event.stopPropagation();">Output</button>
+            </div>
+            <div id="rawCode4" class="output-box">
+                <pre>
+// Q4. C Program to check whether the input number is odd or even using call by reference
+#include <stdio.h>
+    int swap(int *a,int *b);
+    int main (){
+    int j,k;
+    printf("Enter the value of integer:");
+    scanf("%d",&j);
+    swap(&j, &k);
+    printf("\n\nProgram executed by Binamra\n");
+    return 0;
+    }
+    int swap(int *a, int *b){
+    int temp;
+    temp=*a % 2;
+    if(temp==0){printf("Even");}
+    else {printf("Odd");}
+    return 0;
+    }                </pre>
+            </div>
+            <div id="output4" class="output-box">
+                <p><strong>Output for Q4:</strong></p>
+                <p>
+                <img src="OddEven.jpg" width="500 px">
+                </p>
+            </div>
+        </div>
+
+        <div class="question" onclick="toggleOptions(5)">
+            Q5. Write a C program to check whether the input number is prime or not using Pointer and Function.
+            <div id="options5" class="button-container">
+                <p>Do you want to see:</p>
+                <button onclick="showRawCode(5); event.stopPropagation();">Raw Code</button>
+                <button onclick="showOutput(5); event.stopPropagation();">Output</button>
+            </div>
+            <div id="rawCode5" class="output-box">
+                <pre>
+// Q5. C Program to check whether the input number is prime or not using Pointer and Function
+#include <stdio.h>
+    #include <stdbool.h>
+    bool isPrime(int *num) {
+    if (*num <= 1) return false;
+    for (int i = 2; i * i <= *num; i++) {
+    if (*num % i == 0) return false;
+    }
+    return true;
+    }
+    int main() {
+    int num;
+    
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    if (isPrime(&num)) {
+    printf("%d is a prime number.\n", num);
+    } else {
+    printf("%d is not a prime number.\n",
+    num);
+    }
+    return 0;
+    }                </pre>
+            </div>
+            <div id="output5" class="output-box">
+                <p><strong>Output for Q5:</strong></p>
+                <p>
+                <img src="Prime .jpg" width="500 px">
+                </p>
+            </div>
+        </div>
+
+        <div class="question" onclick="toggleOptions(6)">
+            Q6. Write a C program to find the factorial of a given number using call by reference.
+            <div id="options6" class="button-container">
+                <p>Do you want to see:</p>
+                <button onclick="showRawCode(6); event.stopPropagation();">Raw Code</button>
+                <button onclick="showOutput(6); event.stopPropagation();">Output</button>
+            </div>
+            <div id="rawCode6" class="output-box">
+                <pre>
+// Q6. C Program to find the factorial of a given number using call by reference
+#include <stdio.h>
+    void factorial(int *num, int *fact) {
+    *fact = 1;
+    for (int i = 1; i <= *num; i++) {
+    *fact *= i;
+    }
+    }
+    int main() {
+    int num, fact;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    factorial(&num, &fact);
+    printf("The factorial of %d is: %d\n", num, fact);
+    printf("\n\nProgram executed by Binamra\n");
+    return 0;
+    }                </pre>
+            </div>
+            <div id="output6" class="output-box">
+                <p><strong>Output for Q6:</strong></p>
+                <p>
+                <img src="Factorials.jpg" width="500 px">
+            </p>
+            </div>
+        </div>
+
+        <div class="question" onclick="toggleOptions(7)">
+            Q7. Write a C program to print the array of 5 numbers in ascending order using Pointer.
+            <div id="options7" class="button-container">
+                <p>Do you want to see:</p>
+                <button onclick="showRawCode(7); event.stopPropagation();">Raw Code</button>
+                <button onclick="showOutput(7); event.stopPropagation();">Output</button>
+            </div>
+            <div id="rawCode7" class="output-box">
+                <pre>
+// Q7. C Program to print the array of 5 numbers in ascending order using Pointer
+#include <stdio.h>
+    void sortArray(int *arr, int size) {
+    for (int i = 0; i < size - 1; i++) {
+    for (int j = i + 1; j < size; j++) {
+    if (*(arr + i) > *(arr + j)) {
+    int temp = *(arr + i);
+    *(arr + i) = *(arr + j);
+    *(arr + j) = temp;
+    }
+    }
+    }
+    }
+    int main() {
+    int arr[5];
+    printf("Enter 5 numbers: ");
+    
+    for (int i = 0; i < 5; i++) {
+    scanf("%d", &arr[i]);
+    }
+    sortArray(arr, 5);
+    printf("The numbers in ascending order are:
+    ");
+    for (int i = 0; i < 5; i++) {
+    printf("%d ", arr[i]);
+    }
+    printf("\n");
+    printf("\n\nProgram executed by Binamra\n");
+    return 0;
+    }                </pre>
+            </div>
+            <div id="output7" class="output-box">
+                <p><strong>Output for Q7:</strong></p>
+                <p>
+                <img src="Arrayinascendingorder.jpg" width="500 px">   </p>
+            </div>
+        </div>
+
+        <div class="question" onclick="toggleOptions(8)">
+            Q8. Write a C program to calculate the length of a string using Pointer and Function.
+            <div id="options8" class="button-container">
+                <p>Do you want to see:</p>
+                <button onclick="showRawCode(8); event.stopPropagation();">Raw Code</button>
+                <button onclick="showOutput(8); event.stopPropagation();">Output</button>
+            </div>
+            <div id="rawCode8" class="output-box">
+                <pre>
+// Q8. C Program to calculate the length of a string using Pointer and Function
+#include <stdio.h>
+    int stringLength(char *str) {
+    int length = 0;
+    while (*str != '\0') {
+    length++;
+    str++;
+    }
+    return length;
+    }
+    int main() {
+    char str[100];
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+    int length = stringLength(str);
+    printf("The length of the string is: %d\n", length-1);
+    printf("\n\nProgram executed by Binamra\n");
+    return 0;
+    }
+                </pre>
+            </div>
+            <div id="output8" class="output-box">
+                <p><strong>Output for Q8:</strong></p>
+                <p>
+                <img src="Length of String.png" width="500 px">
+                </p>
+            </div>
+        </div>
+
+        <div class="question" onclick="toggleOptions(9)">
+            Q9. Write a C program to find the reverse of a string using call by reference.
+            <div id="options9" class="button-container">
+                <p>Do you want to see:</p>
+                <button onclick="showRawCode(9); event.stopPropagation();">Raw Code</button>
+                <button onclick="showOutput(9); event.stopPropagation();">Output</button>
+            </div>
+            <div id="rawCode9" class="output-box">
+                <pre>
+// Q9. C Program to find the reverse of a string using call by reference
+#include <stdio.h>
+    #include <string.h>
+    void reverseString(char *str) {
+    int length = strlen(str);
+    for (int i = 0; i < length / 2; i++) {
+    char temp = str[i];
+    str[i] = str[length - i - 2];
+    str[length - i - 2] = temp;
+    }
+    }
+    int main() {
+    char str[100];
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+    reverseString(str);
+    printf("The reversed string is: %s\n", str);
+    printf("\n\nProgram executed by Binamra\n");
+    return 0;
+    }                </pre>
+            </div>
+            <div id="output9" class="output-box">
+                <p><strong>Output for Q9:</strong></p>
+                <p>
+                <img src="Reverse.jpg" width="500 px">
+                    </p>
+            </div>
+        </div>
+
+        <div class="question" onclick="toggleOptions(10)">
+            Q10. Write a C program to search an element in an array using pointers.
+            <div id="options10" class="button-container">
+                <p>Do you want to see:</p>
+                <button onclick="showRawCode(10); event.stopPropagation();">Raw Code</button>
+                <button onclick="showOutput(10); event.stopPropagation();">Output</button>
+            </div>
+            <div id="rawCode10" class="output-box">
+                <pre>
+// Q10. C Program to search an element in an array using pointers
+#include <stdio.h>
+    int searchElement(int *arr, int size, int key) {
+    for (int i = 0; i < size; i++) {
+    if (*(arr + i) == key) {
+    return i;
+    }
+    }
+    return -1;
+    }
+    int main() {
+    int arr[5], key, index;
+    printf("Enter 5 numbers: ");
+    for (int i = 0; i < 5; i++) {
+    scanf("%d", &arr[i]);
+    }
+    
+    printf("Enter the number to search: ");
+    scanf("%d", &key);
+    index = searchElement(arr, 5, key);
+    if (index != -1) {
+    printf("Element %d found at index %d.\n",
+    key, index+1);
+    } else {
+    printf("Element %d not found in the
+    array.\n", key);
+    }
+    printf("\n\nProgram executed by Binamra\n");
+    return 0;
+    }                </pre>
+            </div>
+            <div id="output10" class="output-box">
+                <p><strong>Output for Q10:</strong></p>
+                <p>
+                <img src="INDEXINGARRAYS.jpg" width="500 px">
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleOptions(questionNumber) {
+            const options = document.getElementById('options' + questionNumber);
+            if (options.style.display === 'none' || options.style.display === '') {
+                options.style.display = 'block';
+            } else {
+                options.style.display = 'none';
+                hideAllOutputs();
+            }
+        }
+
+        function showRawCode(questionNumber) {
+            hideAllOutputs();
+            document.getElementById('rawCode' + questionNumber).style.display = 'block';
+        }
+
+        function showOutput(questionNumber) {
+            hideAllOutputs();
+            document.getElementById('output' + questionNumber).style.display = 'block';
+        }
+
+        function hideAllOutputs() {
+            const rawCodeSections = document.querySelectorAll('.output-box');
+            rawCodeSections.forEach(section => {
+                section.style.display = 'none';
+            });
+        }
+    </script>
+</body>
+</html>
